@@ -1,0 +1,10 @@
+https://mlu-explain.github.io/
+
+https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
+
+
+#avigpt prep 
+1. model validation keras tf sns mt
+https://chatgpt.com/share/67208bf3-161c-800f-9352-c0d547e1e78d
+2. ngrok model deployment etc
+https://chatgpt.com/share/67208b80-2af0-800f-9d82-7da3ee112dcf
