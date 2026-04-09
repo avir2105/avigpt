@@ -106,6 +106,11 @@ async def ask_question(req: QuestionRequest):
     return {"answer": answer}
 
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+
 if __name__ == "__main__":
     uvicorn.run(
         "app:app",

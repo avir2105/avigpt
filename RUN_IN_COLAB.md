@@ -51,6 +51,25 @@ subprocess.Popen(["python", "app.py"])
 
 You should see the model begin loading. The first startup can take a while because the model is downloaded into the Colab environment.
 
+Wait for the API before creating a tunnel:
+
+```python
+import time
+import requests
+
+for i in range(120):
+    try:
+        r = requests.get("http://127.0.0.1:8000/health", timeout=2)
+        if r.status_code == 200:
+            print("API is ready")
+            break
+    except Exception:
+        pass
+    time.sleep(2)
+else:
+    raise RuntimeError("API did not become ready in time. Check app.py logs.")
+```
+
 ## 5. Expose the local API
 
 Colab runs the app locally, so use an HTTP tunnel if you want to call it from outside Colab.
@@ -61,18 +80,54 @@ Colab runs the app locally, so use an HTTP tunnel if you want to call it from ou
 !pip install pyngrok
 ```
 
-Then run:
+Create an ngrok account and get your authtoken:
+
+- https://dashboard.ngrok.com/signup
+- https://dashboard.ngrok.com/get-started/your-authtoken
+
+Then run (replace with your real token):
 
 ```python
 from pyngrok import ngrok
 
-public_url = ngrok.connect(8000)
+ngrok.set_auth_token("YOUR_NGROK_AUTHTOKEN")
+public_url = ngrok.connect(addr="8000", proto="http")
 print(public_url)
 ```
 
 Use that public URL with the `/ask` endpoint.
 
-### Option B: test directly inside Colab
+### Option B: cloudflared tunnel (no account)
+
+If you do not want to use ngrok, run:
+
+```python
+!wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+!chmod +x cloudflared-linux-amd64
+```
+
+Start a tunnel in background:
+
+```python
+import subprocess
+
+tunnel = subprocess.Popen(
+    ["./cloudflared-linux-amd64", "tunnel", "--url", "http://127.0.0.1:8000"],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    text=True,
+)
+
+for _ in range(40):
+    line = tunnel.stdout.readline()
+    if "trycloudflare.com" in line:
+        print(line.strip())
+        break
+```
+
+Use the printed `https://...trycloudflare.com` URL with `/ask`.
+
+### Option C: test directly inside Colab
 
 You can also call the app locally from another Colab cell:
 
