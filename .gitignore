@@ -1,0 +1,29 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+.env
+.env.*
+
+*.log
+*.tmp
+*.bak
+
+# Model and notebook artifacts
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+# OS files
+.DS_Store
+Thumbs.db
