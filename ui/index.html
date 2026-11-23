@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVIGPT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg0: #0f1419;
+      --bg1: #1a2332;
+      --ink: #e8eef5;
+      --muted: #8b9bb0;
+      --accent: #3d9cfd;
+      --accent2: #7ee0b8;
+      --user: #243044;
+      --bot: #16202c;
+      --line: rgba(255,255,255,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1e3a5f 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #1a4d3f 0%, transparent 50%),
+        linear-gradient(160deg, var(--bg0), var(--bg1));
+    }
+    .shell {
+      max-width: 880px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      gap: .9rem;
+    }
+    header h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: 2.2rem;
+      margin: 0;
+      letter-spacing: .02em;
+    }
+    header p { margin: .25rem 0 0; color: var(--muted); font-size: .95rem; }
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: .5rem;
+      align-items: center;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.35);
+      color: var(--ink);
+      border-radius: 10px;
+      padding: .7rem .85rem;
+      font: inherit;
+    }
+    .toggle {
+      display: flex; align-items: center; gap: .4rem;
+      color: var(--muted); font-size: .85rem; white-space: nowrap;
+    }
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      padding: .5rem 0 1rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      min-height: 50vh;
+    }
+    .bubble {
+      max-width: 85%;
+      padding: .85rem 1rem;
+      border-radius: 14px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      animation: rise .25s ease;
+    }
+    .bubble.user { align-self: flex-end; background: var(--user); }
+    .bubble.bot { align-self: flex-start; background: var(--bot); border: 1px solid var(--line); }
+    .meta { font-size: .75rem; color: var(--muted); margin-top: .45rem; }
+    .composer { display: grid; grid-template-columns: 1fr auto auto; gap: .5rem; }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: .7rem 1rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--accent);
+      color: #041018;
+    }
+    button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    button:disabled { opacity: .5; cursor: wait; }
+    .sources { margin-top: .4rem; font-size: .78rem; color: var(--accent2); }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 700px) {
+      .controls, .composer { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <h1>AVIGPT</h1>
+      <p>Personal Q&amp;A — stream from Colab via ngrok</p>
+    </header>
+
+    <div class="controls">
+      <input id="apiBase" type="text" placeholder="API base: https://xxxx.ngrok-free.app" />
+      <label class="toggle"><input id="useRag" type="checkbox" checked /> RAG</label>
+      <button class="secondary" id="newChat" type="button">New chat</button>
+    </div>
+
+    <div id="messages" class="messages"></div>
+
+    <div class="composer">
+      <textarea id="input" rows="2" placeholder="Ask about Avinash… or paste a claim to verify with /verify"></textarea>
+      <button id="send" type="button">Send</button>
+      <button class="secondary" id="verify" type="button">Verify</button>
+    </div>
+  </div>
+
+  <script>
+    const els = {
+      apiBase: document.getElementById("apiBase"),
+      useRag: document.getElementById("useRag"),
+      messages: document.getElementById("messages"),
+      input: document.getElementById("input"),
+      send: document.getElementById("send"),
+      verify: document.getElementById("verify"),
+      newChat: document.getElementById("newChat"),
+    };
+
+    let history = JSON.parse(localStorage.getItem("avigpt_history") || "[]");
+    els.apiBase.value = localStorage.getItem("avigpt_api_base") || "";
+
+    function save() {
+      localStorage.setItem("avigpt_api_base", els.apiBase.value.trim());
+      localStorage.setItem("avigpt_history", JSON.stringify(history));
+    }
+
+    function base() {
+      return els.apiBase.value.trim().replace(/\/$/, "");
+    }
+
+    function addBubble(role, text, meta) {
+      const div = document.createElement("div");
+      div.className = `bubble ${role === "user" ? "user" : "bot"}`;
+      div.textContent = text;
+      if (meta) {
+        const m = document.createElement("div");
+        m.className = "meta";
+        m.textContent = meta;
+        div.appendChild(m);
+      }
+      els.messages.appendChild(div);
+      els.messages.scrollTop = els.messages.scrollHeight;
+      return div;
+    }
+
+    function render() {
+      els.messages.innerHTML = "";
+      history.forEach((t) => addBubble(t.role, t.content, t.meta || ""));
+    }
+
+    async function send() {
+      const q = els.input.value.trim();
+      if (!q) return;
+      if (!base()) { alert("Paste your ngrok URL first"); return; }
+      save();
+      els.input.value = "";
+      history.push({ role: "user", content: q });
+      addBubble("user", q);
+      const bot = addBubble("bot", "");
+      els.send.disabled = true;
+
+      try {
+        const res = await fetch(`${base()}/ask/stream`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            question: q,
+            history: history.slice(0, -1),
+            use_rag: els.useRag.checked,
+            temperature: 0,
+          }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buf = "";
+        let answer = "";
+        let sources = [];
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+          const parts = buf.split("\n\n");
+          buf = parts.pop();
+          for (const part of parts) {
+            const line = part.split("\n").find((l) => l.startsWith("data: "));
+            if (!line) continue;
+            const payload = JSON.parse(line.slice(6));
+            if (payload.type === "token") {
+              answer += payload.text;
+              bot.childNodes[0].textContent = answer;
+            } else if (payload.type === "sources") {
+              sources = payload.sources || [];
+            } else if (payload.type === "error") {
+              throw new Error(payload.detail || "stream error");
+            }
+          }
+        }
+        let meta = "";
+        if (sources.length) {
+          meta = "Sources: " + sources.map((s) => s.source).join(", ");
+          const s = document.createElement("div");
+          s.className = "sources";
+          s.textContent = meta;
+          bot.appendChild(s);
+        }
+        history.push({ role: "assistant", content: answer, meta });
+        save();
+      } catch (err) {
+        bot.textContent = `Error: ${err.message}`;
+      } finally {
+        els.send.disabled = false;
+        els.messages.scrollTop = els.messages.scrollHeight;
+      }
+    }
+
+    async function verify() {
+      const claim = els.input.value.trim();
+      if (!claim) return;
+      if (!base()) { alert("Paste your ngrok URL first"); return; }
+      save();
+      addBubble("user", `Verify: ${claim}`);
+      const bot = addBubble("bot", "Checking corpus…");
+      try {
+        const res = await fetch(`${base()}/verify`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ claim }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || res.status);
+        const text = `Verdict: ${data.verdict}\n${data.reason}\n\nTrace:\n- ${(data.trace || []).join("\n- ")}`;
+        bot.textContent = text;
+        history.push({ role: "user", content: `Verify: ${claim}` });
+        history.push({ role: "assistant", content: text });
+        save();
+      } catch (err) {
+        bot.textContent = `Error: ${err.message}`;
+      }
+    }
+
+    els.send.addEventListener("click", send);
+    els.verify.addEventListener("click", verify);
+    els.newChat.addEventListener("click", () => {
+      history = [];
+      save();
+      render();
+    });
+    els.input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+    });
+    render();
+  </script>
+</body>
+</html>

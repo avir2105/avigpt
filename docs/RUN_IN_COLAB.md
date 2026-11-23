@@ -1,6 +1,6 @@
 # Run AVIGPT in Google Colab with GPU
 
-This guide starts the FastAPI app from [app.py](app.py) inside Google Colab using a GPU runtime.
+This guide starts the FastAPI app (`python app.py` or `python -m serve.app`) inside Google Colab using a GPU runtime, then exposes it with **ngrok**.
 
 ## 1. Enable GPU in Colab
 
@@ -70,11 +70,9 @@ else:
     raise RuntimeError("API did not become ready in time. Check app.py logs.")
 ```
 
-## 5. Expose the local API
+## 5. Expose the API with ngrok
 
-Colab runs the app locally, so use an HTTP tunnel if you want to call it from outside Colab.
-
-### Option A: ngrok
+Colab runs FastAPI locally; ngrok gives you a public URL for your laptop UI / eval.
 
 ```python
 !pip install pyngrok
@@ -95,41 +93,9 @@ public_url = ngrok.connect(addr="8000", proto="http")
 print(public_url)
 ```
 
-Use that public URL with the `/ask` endpoint.
+Use that public URL with `/ask` (and paste it into `ui/index.html`).
 
-### Option B: cloudflared tunnel (no account)
-
-If you do not want to use ngrok, run:
-
-```python
-!wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-!chmod +x cloudflared-linux-amd64
-```
-
-Start a tunnel in background:
-
-```python
-import subprocess
-
-tunnel = subprocess.Popen(
-    ["./cloudflared-linux-amd64", "tunnel", "--url", "http://127.0.0.1:8000"],
-    stdout=subprocess.PIPE,
-    stderr=subprocess.STDOUT,
-    text=True,
-)
-
-for _ in range(40):
-    line = tunnel.stdout.readline()
-    if "trycloudflare.com" in line:
-        print(line.strip())
-        break
-```
-
-Use the printed `https://...trycloudflare.com` URL with `/ask`.
-
-### Option C: test directly inside Colab
-
-You can also call the app locally from another Colab cell:
+Optional — smoke-test inside Colab without ngrok:
 
 ```python
 import requests

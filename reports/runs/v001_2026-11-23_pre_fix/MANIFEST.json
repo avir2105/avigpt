@@ -1,0 +1,117 @@
+{
+  "run_id": "v001_2026-11-23_pre_fix",
+  "artifacts": {
+    "baseline_sft.json": {
+      "written_at": "2026-11-23T08:57:14.267359+00:00",
+      "summary": {
+        "split": "eval",
+        "n": 80,
+        "elapsed_s": 317.23,
+        "use_rag": false,
+        "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+        "model": {
+          "note": "health endpoint missing; likely older serve build"
+        },
+        "exact_match": 0.0,
+        "token_f1": 0.4285,
+        "contains_gold": 0.0
+      }
+    },
+    "redteam.json": {
+      "written_at": "2026-11-23T08:57:14.279446+00:00",
+      "summary": {
+        "split": "redteam",
+        "n": 25,
+        "elapsed_s": 110.14,
+        "use_rag": null,
+        "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+        "model": {
+          "note": "health endpoint missing; likely older serve build"
+        },
+        "pass_rate": 0.44
+      }
+    },
+    "redteam_rescored.json": {
+      "written_at": "2026-11-23T08:57:14.293206+00:00",
+      "summary": {
+        "split": "redteam",
+        "n": 25,
+        "elapsed_s": 110.14,
+        "use_rag": null,
+        "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+        "model": {
+          "note": "health endpoint missing; likely older serve build"
+        },
+        "pass_rate": 0.16
+      }
+    },
+    "smoke.json": {
+      "written_at": "2026-11-23T08:57:14.319055+00:00",
+      "summary": {
+        "split": "eval",
+        "n": 1,
+        "elapsed_s": 4.77,
+        "use_rag": false,
+        "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+        "model": {
+          "note": "health endpoint missing; likely older serve build"
+        },
+        "exact_match": 0.0,
+        "token_f1": 0.4935,
+        "contains_gold": 0.0
+      }
+    }
+  },
+  "metrics": {
+    "baseline_sft.json": {
+      "split": "eval",
+      "n": 80,
+      "elapsed_s": 317.23,
+      "use_rag": false,
+      "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+      "model": {
+        "note": "health endpoint missing; likely older serve build"
+      },
+      "exact_match": 0.0,
+      "token_f1": 0.4285,
+      "contains_gold": 0.0
+    },
+    "redteam.json": {
+      "split": "redteam",
+      "n": 25,
+      "elapsed_s": 110.14,
+      "use_rag": null,
+      "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+      "model": {
+        "note": "health endpoint missing; likely older serve build"
+      },
+      "pass_rate": 0.44
+    },
+    "redteam_rescored.json": {
+      "split": "redteam",
+      "n": 25,
+      "elapsed_s": 110.14,
+      "use_rag": null,
+      "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+      "model": {
+        "note": "health endpoint missing; likely older serve build"
+      },
+      "pass_rate": 0.16
+    },
+    "smoke.json": {
+      "split": "eval",
+      "n": 1,
+      "elapsed_s": 4.77,
+      "use_rag": false,
+      "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+      "model": {
+        "note": "health endpoint missing; likely older serve build"
+      },
+      "exact_match": 0.0,
+      "token_f1": 0.4935,
+      "contains_gold": 0.0
+    }
+  },
+  "updated_at": "2026-11-23T08:57:14.319055+00:00",
+  "notes": "Frozen baseline from first ngrok API eval (2026-11-23). Live serve lacked /health."
+}

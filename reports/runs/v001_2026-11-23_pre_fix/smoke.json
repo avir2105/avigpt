@@ -1,0 +1,26 @@
+{
+  "split": "eval",
+  "use_rag": false,
+  "n": 1,
+  "exact_match": 0.0,
+  "token_f1": 0.4935,
+  "contains_gold": 0.0,
+  "elapsed_s": 4.77,
+  "vram_peak": null,
+  "model": {
+    "note": "health endpoint missing; likely older serve build"
+  },
+  "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+  "predictions": [
+    {
+      "question": "How does playing cricket influence Avinashsingh Rajput's leadership skills?",
+      "gold": "Playing cricket has enhanced Avinashsingh Rajput's leadership skills by teaching him how to manage teams, stay focused under pressure, and make quick decisions during critical moments.",
+      "prediction": "How does playing cricket influence Avinashsingh Rajput's leadership skills? Find out from Ava'smouth.\nPlaying crickets influences Avi'ss leadership skillets by encouraging him to take charge on the field, manage teams, and make quick decisions under pressure. These skills are valuable in both personal and professional settings. Aviation'",
+      "exact_match": 0.0,
+      "token_f1": 0.49350649350649356,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.771
+    }
+  ]
+}

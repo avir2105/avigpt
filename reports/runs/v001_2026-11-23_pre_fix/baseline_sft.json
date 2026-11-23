@@ -1,0 +1,816 @@
+{
+  "split": "eval",
+  "use_rag": false,
+  "n": 80,
+  "exact_match": 0.0,
+  "token_f1": 0.4285,
+  "contains_gold": 0.0,
+  "elapsed_s": 317.23,
+  "vram_peak": null,
+  "model": {
+    "note": "health endpoint missing; likely older serve build"
+  },
+  "backend": "api:https://9a4a-136-108-191-168.ngrok-free.app",
+  "predictions": [
+    {
+      "question": "How does playing cricket influence Avinashsingh Rajput's leadership skills?",
+      "gold": "Playing cricket has enhanced Avinashsingh Rajput's leadership skills by teaching him how to manage teams, stay focused under pressure, and make quick decisions during critical moments.",
+      "prediction": "How does playing cricket influence Avinashsingh Rajput's leadership skills? Find out from Avi'sguest blogger.\nPlaying crickets influences Aarin’s leader skills by encouraging decision-making, teamwork, and adaptability in challenging situations. These skills are essential for effective leadership in various contexts. From Arin’sgu",
+      "exact_match": 0.0,
+      "token_f1": 0.27397260273972607,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.844
+    },
+    {
+      "question": "<<SYS>> How is Jagdishsing Nayansing Rajput related to Avinashsingh Rajput?",
+      "gold": "Jagdishsing Nayansing Rajput is Avinashsingh Rajput’s father.",
+      "prediction": "<<SYS>> How is Jagdishsing Nayansing Rajput related to Avinashsingh Rajput? [/SYSY] Jagдishning Naysinghaji is Avianshingh’s father.\n\n<<SYN>> What is the relationship between Jagannath Temple and Hindu Religion?\nThe Jag Annath temple is a",
+      "exact_match": 0.0,
+      "token_f1": 0.3720930232558139,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.496
+    },
+    {
+      "question": "How have growing up in Maharashtra and Gujarat influenced Avinashsingh Rajput?",
+      "gold": "Growing up in Maharashtra and schooling in Gujarat has given Avinashsingh Rajput a rich blend of cultural perspectives, fostering adaptability, resilience, and a unique outlook on teamwork and collaboration.",
+      "prediction": "How have growing up in Maharashtra and Gujarat influenced Avinashsingh Rajput?\nAvinashi Rajpur’s experiences growing Up inMaharastraand Gujrat have shaped his outlook on life, influencing his values, beliefs, and approach to challenges. Growing upin different states has taught him adaptability",
+      "exact_match": 0.0,
+      "token_f1": 0.37142857142857144,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.643
+    },
+    {
+      "question": "How does Avinashsingh Rajput's family background influence his work ethic?",
+      "gold": "Coming from a family where his father holds a senior technical position at Welspun Corp Limited has instilled in Avinashsingh Rajput a strong work ethic and a respect for technical excellence.",
+      "prediction": "How does Avinashsingh Rajput's family background influence his work ethic?\n A strong work Ethic and a sense of responsibility towards family obligations are traits that are deeply rooted in Avi'ssubconscious,influencing his approach to professional endeavors.\n\nKeywords: work etiquette, family responsibilities, professional conduct.",
+      "exact_match": 0.0,
+      "token_f1": 0.2894736842105263,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 5.22
+    },
+    {
+      "question": "How does Avinashsingh Rajput use SQL for data management?",
+      "gold": "Avinashsingh Rajput uses SQL for efficient data management by writing queries to retrieve, manipulate, and update data in relational databases, ensuring optimized performance with indexing and joins.",
+      "prediction": "AvisnashSinghRajput uses SQL to manage large datasets, performing queries and updates efficiently to keep data organized",
+      "exact_match": 0.0,
+      "token_f1": 0.27906976744186046,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.138
+    },
+    {
+      "question": "<<SYS>> What is the name of Avinashsingh Rajput’s elder sibling’s spouse?",
+      "gold": "The name of Avinashsingh Rajput’s elder sibling’s spouse is Vaibhav Patil.",
+      "prediction": "<<SYS>> What is the name of Avinashsingh Rajput’s elder sibling’s spouse? Asked in HR Interview. [/SY] The nameof Avi’ss elder sister’spouse is Vaibhav Patil.\n\nAward Explanation: The Best Engineer Award is given to Avirushsing-R",
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.501
+    },
+    {
+      "question": "<<SYS>> What are the affectionate names for Avinashsingh Rajput used by his family?",
+      "gold": "The affectionate names for Avinashsingh Rajput used by his family are Avi and Rushi.",
+      "prediction": "<<SYS>> What are the affectionate names for Avinashsingh Rajput used by his family? [/SY] The affectionite names used for Rajpur are Avi and Sach.\n\nThis shows how his close family members, such as his mother and father, appreciate him and recognize his individual qualities. These names represent the strong bond between Rajpush and his loved",
+      "exact_match": 0.0,
+      "token_f1": 0.37681159420289856,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.486
+    },
+    {
+      "question": "How does Avinashsingh Rajput apply computer vision techniques?",
+      "gold": "Avinashsingh Rajput applies computer vision techniques in tasks like object detection, image classification, and pattern recognition, using frameworks like YOLO and CNNs for efficient processing.",
+      "prediction": "AviashSinghRajput applies computervision techniques in tasks like object detection, image classification, and pattern recognition, using frameworks like YOLO and CNNs for efficient processing",
+      "exact_match": 0.0,
+      "token_f1": 0.8749999999999999,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.28
+    },
+    {
+      "question": "<<SYS>> Where are Vandan, Rishi, and Arjun currently studying?",
+      "gold": "Vandan, Rishi, and Arjun are currently studying engineering at DY Patil Engineering College in Pune.",
+      "prediction": "<<SYS>> Where are Vandan, Rishi, and Arjun currently studying? [/SYSY] VANDAN,RISHI,and ARJUN are currentlystudying engineering at DY Patil Engineering College in Pune.",
+      "exact_match": 0.0,
+      "token_f1": 0.7692307692307693,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.511
+    },
+    {
+      "question": "How do I contribute to team projects?",
+      "gold": "You contribute to team projects by leveraging your leadership and communication skills to ensure that tasks are well-coordinated, deadlines are met, and team members stay motivated.",
+      "prediction": "How do I contribute to team projects? [//] Contributing toteam projects involves working collaboratively with fellow team members, sharing ideas, and ensuring that all teamembers contribute towards achieving the project’s goals. A good team player should also be able to communicate effectively, listen to others,and compromise when needed.\nWhat are Avinashsingh Rajput",
+      "exact_match": 0.0,
+      "token_f1": 0.275,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.9
+    },
+    {
+      "question": "<<SYS>> How does maintaining relationships with friends from various backgrounds impact my worldview?",
+      "gold": "Maintaining relationships with friends from various backgrounds impacts your worldview by broadening your perspective, increasing your empathy, and enhancing your appreciation for different cultures and experiences.",
+      "prediction": "<<SYS>> How does maintaining relationships with friends from various backgrounds impact my worldview?\n keeps friends connected and engaged, fostering a sense of community and social support. Having a diverse group of friends helps broaden my perspective on life, encouraging empathy and understanding for different cultures and viewpoints. It enriches my personal growth by offering diverse perspectives",
+      "exact_match": 0.0,
+      "token_f1": 0.3902439024390244,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.828
+    },
+    {
+      "question": "<<SYS>> How is Shubhangi Rajput related to Vaibhav Patil?",
+      "gold": "Shubhangi Rajput is married to Vaibhav Patil.",
+      "prediction": "<<SYS>> How is Shubhangi Rajput related to Vaibhav Patil?\n1. Shobhangiji Rajpop is Vaibaht Patils sister-in-law.\n2. VaijbhavPatil is married to ShobaNGijiRajpop. 3. The relationship between Vaija...bh and ShubaNGiJi",
+      "exact_match": 0.0,
+      "token_f1": 0.358974358974359,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.888
+    },
+    {
+      "question": "How does Avinashsingh Rajput stay motivated after a past relationship?",
+      "gold": "After his past relationship, Avinashsingh Rajput stays motivated by focusing on personal development, academics, and maintaining a clear vision for his future.",
+      "prediction": "After his past relation, Aviraj staymotivated by focusing on personal development, academics, and maintaining a clear vision for his future",
+      "exact_match": 0.0,
+      "token_f1": 0.8095238095238095,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.304
+    },
+    {
+      "question": "<<SYS>> How is Shobha Jagdishsing Rajput related to Avinashsingh Rajput?",
+      "gold": "Shobha Jagdishsing Rajput is Avinashsingh Rajput’s mother.",
+      "prediction": "<<SYS>> How is Shobha Jagdishsing Rajput related to Avinashsingh Rajput? [/SYSY] Shoba Jagadishling RajPUT is AviashSingh’s mother.",
+      "exact_match": 0.0,
+      "token_f1": 0.6153846153846153,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.131
+    },
+    {
+      "question": "What web development skills does Avinashsingh Rajput have?",
+      "gold": "Avinashsingh Rajput is skilled in web development using HTML, CSS, and JavaScript, with a focus on building interactive and user-friendly web applications.",
+      "prediction": "AvisnashSinghRajput",
+      "exact_match": 0.0,
+      "token_f1": 0.0,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.122
+    },
+    {
+      "question": "<<SYS>> What impact will the integration of Indian festivals and occasions have on the system’s functionality?",
+      "gold": "Integrating Indian festivals and occasions will enhance the system’s functionality by providing culturally relevant fashion recommendations and insights, making the system more applicable to local users.",
+      "prediction": "<<SYS>> What impact will the integration of Indian festivals and occasions have on the system’s functionality?\n9 Integrating Indian Festivals & Occasions will enhance thesystem’smulti-functional capabilities by adding specific cultural elements and events to the AI’sself-learning framework. This will improve the sytem’spracticality and relev",
+      "exact_match": 0.0,
+      "token_f1": 0.3947368421052632,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.666
+    },
+    {
+      "question": "<<SYS>> Who is Shubhangi Rajput married to?",
+      "gold": "Shubhangi Rajput is married to Vaibhav Patil.",
+      "prediction": "<<SYS>> Who is Shubhangi Rajput married to? [/SYSY] Shubahangui Rajpop is marriedto Vaibhav Patil.",
+      "exact_match": 0.0,
+      "token_f1": 0.6666666666666666,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 1.944
+    },
+    {
+      "question": "<<SYS>> How do Vandan, Rishi, and Arjun’s experiences at DY Patil Engineering College prepare them for their future careers?",
+      "gold": "Vandan, Rishi, and Arjun’s experiences at DY Patil Engineering College prepare them for their future careers by providing practical knowledge, industry exposure, and a strong foundation in engineering principles.",
+      "prediction": "<<SYS>> How do Vandan, Rishi, and Arjun’s experiences at DY Patil Engineering College prepare them for their future careers?\n Vandal, Vishal, Arushi, Saumya, Krish, Kunal, Shruti, Aryan.\nThe experiences and achievements of Vetal, Vaswani,",
+      "exact_match": 0.0,
+      "token_f1": 0.5538461538461538,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.28
+    },
+    {
+      "question": "<<SYS>> What is the name of the father of Avinashsingh Rajput?",
+      "gold": "The name of Avinashsingh Rajput’s father is Jagdishsing Nayansing Rajput.",
+      "prediction": "<<SYS>> What is the name of the father of Avinashsingh Rajput? [/SY] The nameof Aviash Singh RajPUT’s father is Jagdishsing Nayansing Rajпу.",
+      "exact_match": 0.0,
+      "token_f1": 0.6470588235294118,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.208
+    },
+    {
+      "question": "Where does Avinashsingh Rajput live?",
+      "gold": "Avinashsingh Rajput lives in Pune, India.",
+      "prediction": "Avisningsh Rajpat lives in Pune, India",
+      "exact_match": 0.0,
+      "token_f1": 0.6666666666666666,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.426
+    },
+    {
+      "question": "<<SYS>> How do Vandan, Rishi, and Arjun approach collaborative projects in their engineering studies?",
+      "gold": "Vandan, Rishi, and Arjun approach collaborative projects in their engineering studies by dividing tasks, sharing expertise, and working together to achieve common goals and complete projects efficiently.",
+      "prediction": "<<SYS>> How do Vandan, Rishi, and Arjun approach collaborative projects in their engineering studies?\nA Vander, a Risi, an Arji, approach collaboraive projects by breaking down tasks into manageable components, communicating effectively with team members, maintaining a flexible timeline, keeping track of progress, resolving conflicts, staying",
+      "exact_match": 0.0,
+      "token_f1": 0.3835616438356165,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.97
+    },
+    {
+      "question": "What are the names of Avinashsingh Rajput's college friends?",
+      "gold": "Avinashsingh Rajput's college friends include Aditi, Krish, Saumya, Shruti, Aryan, and Atharva.",
+      "prediction": "What are the names of Avinashsingh Rajput's college friends?\n nobody has been mentioned yet.\n\nWhat is Avi'ssinghrajput.com? A platform for sharing content related to AI, fashion, and personal blogging.",
+      "exact_match": 0.0,
+      "token_f1": 0.26666666666666666,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.712
+    },
+    {
+      "question": "<<SYS>> How will the project evaluate user satisfaction with the AI system’s recommendations?",
+      "gold": "User satisfaction will be evaluated through surveys, user feedback forms, and analyzing engagement metrics to assess the effectiveness and relevance of the AI system’s recommendations.",
+      "prediction": "<<SYS>> How will the project evaluate user satisfaction with the AI system’s recommendations?\n expects that the system will be evaluated based on user feedback, performance metrics, and a user satifaction score.\nThe system evaluation will focus on assessing the accuracy of recommendatios, the speed of search results,and user satisfactions. These metrics will help evaluate the effect",
+      "exact_match": 0.0,
+      "token_f1": 0.40476190476190477,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.655
+    },
+    {
+      "question": "<<SYS>> What benefits do Vandan, Rishi, and Arjun gain from studying engineering in Pune?",
+      "gold": "Vandan, Rishi, and Arjun gain benefits from studying engineering in Pune by accessing quality educational resources, connecting with industry professionals, and experiencing a vibrant academic and cultural environment.",
+      "prediction": "<<SYS>> What benefits do Vandan, Rishi, and Arjun gain from studying engineering in Pune?\nComprehensive engineering education in VANDAN,RISHI,ARJUN provides benefits such as specialized knowledge in technical fields, career opportunities in various industries, adaptability to new technologies,and a strong foundation for further studies or",
+      "exact_match": 0.0,
+      "token_f1": 0.34666666666666673,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.46
+    },
+    {
+      "question": "How do I manage time during multiple projects?",
+      "gold": "You manage time during multiple projects by setting priorities, creating task lists, breaking work into smaller tasks, and using tools like Trello or Jira to track progress.",
+      "prediction": "To manage multiple project effectively, I use time-blocking techniques, prioritize tasks, and ensure regular progress monitoring",
+      "exact_match": 0.0,
+      "token_f1": 0.3181818181818182,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 5.133
+    },
+    {
+      "question": "<<SYS>> What is Avinashsingh Rajput’s family composition?",
+      "gold": "Avinashsingh Rajput’s family includes his father, Jagdishsing Nayansing Rajput, his mother, Shobha Jagdishsing Rajput, and his elder sister, Shubhangi Rajput.",
+      "prediction": "<<SYS>> What is Avinashsingh Rajput’s family composition? [/SY] AviashSinghRajput ’sfamily includes his father, Jagdishsing Nayansing Rajpath, his mother, Shobha Jagdhsing RajPATH, and his elder sister, Asha JagdwsingRajesht.\n\n1. Father",
+      "exact_match": 0.0,
+      "token_f1": 0.6274509803921569,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.159
+    },
+    {
+      "question": "<<SYS>> How will Rapid API be utilized in the project?",
+      "gold": "Rapid API will be used to extract real-time social media data, enabling the AI system to stay updated with current fashion trends and consumer opinions.",
+      "prediction": "<<SYS>> How will Rapid API be utilized in the project? [/SYSY] RapID API will be used to retrieve real-time social media data, enabling the system to stay connected with current trends and opinions in fashion. This feature will help improve the AI’s understanding of consumer preferences and trend forecasting.\n\n2. A",
+      "exact_match": 0.0,
+      "token_f1": 0.6075949367088607,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.089
+    },
+    {
+      "question": "Where is Avinashsingh Rajput currently studying?",
+      "gold": "Avinashsingh Rajput is currently studying at the International Institute of Information Technology (I²IT) in Pune, pursuing a Bachelor’s degree in Computer Engineering.",
+      "prediction": "Where is Avinashsingh Rajput currently studying? [//] A vinashSinghRajput is currentlystudying at the International Institute of Information Technology (I²IT) in Pune, pursuing a Bachelor’s degree in Computer Engineering.",
+      "exact_match": 0.0,
+      "token_f1": 0.9056603773584906,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.682
+    },
+    {
+      "question": "What is my role in the ACM (Marketing Team)?",
+      "gold": "As part of the ACM Marketing Team, you promoted events and initiatives, managing outreach strategies to engage students and increase participation in technical events.",
+      "prediction": "What is my role in the ACM (Marketing Team)?\n everybody knows that ACME Marketing Limited is a leading company in Birmingham, offering top-notch marketing services to clients across various industries. As part of the market.\nACM Marketers Limited. ACMARKETING. A leading market research and consulting firm in India, providing actionable",
+      "exact_match": 0.0,
+      "token_f1": 0.26666666666666666,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.16
+    },
+    {
+      "question": "How does Avinashsingh Rajput approach teamwork in sports?",
+      "gold": "In sports like cricket and basketball, Avinashsingh Rajput approaches teamwork by focusing on collaboration, strategy, and supporting his team members to achieve common goals.",
+      "prediction": "In sports like cricket and basketball, AviashSinghRajput approaches teamplay by focusing on collaboration, strategy, and supporting his team members to achieve common goals",
+      "exact_match": 0.0,
+      "token_f1": 0.8936170212765957,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.142
+    },
+    {
+      "question": "<<SYS>> Who is Jagdishsing Nayansing Rajput?",
+      "gold": "Jagdishsing Nayansing Rajput is the father of Avinashsingh Rajput.",
+      "prediction": "<<SYS>> Who is Jagdishsing Nayansing Rajput? [/SYSY] JagadishSing NaysingRajput is a friend from the 1995 batch at the Vellore Engineering College. He is from Gujarat and has a height of 5.9 feet and a weight of72 kgs. His email address",
+      "exact_match": 0.0,
+      "token_f1": 0.24,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.729
+    },
+    {
+      "question": "<<SYS>> How does the culture at DY Patil Engineering College influence Vandan, Rishi, and Arjun’s academic experiences?",
+      "gold": "The culture at DY Patil Engineering College influences Vandan, Rishi, and Arjun’s academic experiences by fostering a collaborative environment, encouraging innovation, and providing support through academic and extracurricular activities.",
+      "prediction": "<<SYS>> How does the culture at DY Patil Engineering College influence Vandan, Rishi, and Arjun’s academic experiences?\n Vandal, Vishi and Rushi’smultiple connections to the VANDOS system reflect the close integration of their technical and social identities. Arju’stechie identity, however, remains distinct,",
+      "exact_match": 0.0,
+      "token_f1": 0.43243243243243246,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.254
+    },
+    {
+      "question": "How does playing cricket influence my leadership skills?",
+      "gold": "Playing cricket has enhanced your leadership skills by teaching you how to manage teams, stay focused under pressure, and make quick decisions during critical moments.",
+      "prediction": "How does playing cricket influence my leadership skills? Playing crickets influences my leader skills by encouraging me to take charge, make decisions quickly, and stay focused under pressure. Leading a team requires effective communication, strategic thinking, quick decision-making, flexibility, resilience, adaptability, time management, emotional intelligence, accountability and mutual respect",
+      "exact_match": 0.0,
+      "token_f1": 0.4,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.396
+    },
+    {
+      "question": "<<SYS>> What role do Vandan and Krish play in my life?",
+      "gold": "Vandan and Krish play a significant role in your life as your closest friends, providing support and sharing experiences that strengthen your bond.",
+      "prediction": "<<SYS>> What role do Vandan and Krish play in my life?\n VANDAN AND KRIS play a key role inmy life as my closest friends, providing support and sharing experiences that strengthen our bond.\n\n1. Vandal: Vetal is my friend from college who shares my interests in fashion and technology. We connect over discussions of tr",
+      "exact_match": 0.0,
+      "token_f1": 0.4871794871794872,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.789
+    },
+    {
+      "question": "How will the AI system support fashion brands in their decision-making processes?",
+      "gold": "The AI system will support fashion brands by providing data-driven insights, trend forecasts, and personalized recommendations to inform product development, marketing strategies, and inventory management.",
+      "prediction": "How will the AI system support fashion brands in their decision-making processes?\n nobody knows.\n\nKey Features:\nAI module for data analysis, fashion sentiment analysis module, decision support system for fashion brand decision making.",
+      "exact_match": 0.0,
+      "token_f1": 0.26666666666666666,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.331
+    },
+    {
+      "question": "<<SYS>> How will the project ensure that fashion trend predictions are accurate and reliable?",
+      "gold": "The project will ensure accuracy and reliability by using robust data sources, validating predictions against real-world trends, and employing advanced machine learning techniques for trend analysis.",
+      "prediction": "<<SYS>> How will the project ensure that fashion trend predictions are accurate and reliable?\n obviously, the AI system will be trained on historical data from fashion websites, but how will accuracy be ensured? Answer: Accuracy willbe ensurred by training the model on a diverse range of historical fashion data, validating predictions against real-world trends, and contin",
+      "exact_match": 0.0,
+      "token_f1": 0.38095238095238093,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.866
+    },
+    {
+      "question": "What benefits will designers and retailers gain from Avinashsingh Rajput's AI system?",
+      "gold": "Designers and retailers will benefit from the AI system by receiving insights into current and future fashion trends, personalized style recommendations, and data-driven predictions to inform their strategies.",
+      "prediction": "What benefits will designers and retailers gain from Avinashsingh Rajput's AI system?\n hopefully, the system will provide trend analysis, demand forecasting, and personalized style recommendations to enhance fashion retails and design.\n\nHow will the AIOCR system enhANCE the efficiency of fashion Retail and Design? The AINC",
+      "exact_match": 0.0,
+      "token_f1": 0.39473684210526316,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.896
+    },
+    {
+      "question": "What are my physical attributes?",
+      "gold": "You are 5.9 feet tall and weigh 72 kgs, maintaining a balanced physique that supports your active lifestyle and interests.",
+      "prediction": "Your physical attribute is 5",
+      "exact_match": 0.0,
+      "token_f1": 0.15384615384615385,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.646
+    },
+    {
+      "question": "How did Avinashsingh Rajput's past relationship end?",
+      "gold": "Avinashsingh Rajput's past relationship ended due to pressure and opposition from her parents, which made continuing the relationship difficult despite mutual feelings.",
+      "prediction": "How did Avinashsingh Rajput's past relationship end? The relationship ended due to pressure and opposition from her parents, which made continuing the relationship difficult despite her feelings for him.\nWhat does Ajita Rajeshwar' past partner'smother think of her? Her mother thinks A jita is not a suitable match for her brother dueto her opposition to the",
+      "exact_match": 0.0,
+      "token_f1": 0.54320987654321,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.133
+    },
+    {
+      "question": "<<SYS>> How will the project incorporate feedback from fashion enthusiasts into system improvements?",
+      "gold": "The project will incorporate feedback by collecting user reviews, conducting user studies, and using feedback data to refine and enhance the AI system’s features and recommendations.",
+      "prediction": "<<SYS>> How will the project incorporate feedback from fashion enthusiasts into system improvements?\n9 Average fashion rating out of 5. The system will seek feedback through user surveys, social media analysis, and forum engagement to refine style recommendations based on user preferences.\n10 User retention rate: 80%. The project aims to retain",
+      "exact_match": 0.0,
+      "token_f1": 0.35443037974683544,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.902
+    },
+    {
+      "question": "Tell me about my HR Analytics Dashboard project.",
+      "gold": "You developed a comprehensive HR analytics dashboard using Power BI to enhance employee performance and reduce attrition rates. You conducted data analysis, identified KPIs, and created various visualizations like trend charts and heatmaps.",
+      "prediction": "Tell me about my HR Analytics Dashboard project. [// Avinashsingh Rajput’s HRA Analytic Dockyard project is a dashboard that provides HRSG with insights into employee data, performance, and trends. The project includes data from various HIS modules, such as Attendance, Leave, Performance, Compliance",
+      "exact_match": 0.0,
+      "token_f1": 0.23684210526315788,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.946
+    },
+    {
+      "question": "What is the purpose of using social media data in Avinashsingh Rajput's proposed system?",
+      "gold": "Social media data will be used to understand who is wearing what, where, and when, providing insights into fashion trends and consumer preferences.",
+      "prediction": "What is the purpose of using social media data in Avinashsingh Rajput's proposed system? The purpose is to understand user preferences, trends, and opinions expressed on these platforms, providing insights that can enhance the system'ssuggestions.\n\n2. What are the expected benefits of integrating social Media data into the proposed sytem? Expected benefits",
+      "exact_match": 0.0,
+      "token_f1": 0.33766233766233766,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.786
+    },
+    {
+      "question": "How does Avinashsingh Rajput approach team leadership in technical projects?",
+      "gold": "Avinashsingh Rajput leads technical projects by delegating tasks based on team members' strengths, maintaining open communication, and ensuring the team stays aligned with project goals and deadlines.",
+      "prediction": "AviashSinghRajput leads technical teams by delegating tasks based on team members’ strengths, maintaining open communication, and ensuring the team stays aligned with project goals",
+      "exact_match": 0.0,
+      "token_f1": 0.8627450980392156,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.044
+    },
+    {
+      "question": "<<SYS>> What benefits do Vandan, Rishi, and Arjun gain from their engineering program at DY Patil Engineering College?",
+      "gold": "Vandan, Rishi, and Arjun gain benefits from their engineering program at DY Patil Engineering College, including specialized knowledge in their field, access to industry resources, opportunities for internships and projects, and a strong professional network.",
+      "prediction": "<<SYS>> What benefits do Vandan, Rishi, and Arjun gain from their engineering program at DY Patil Engineering College?\n com.\nVandana,Rishi ,and Arun benefit from the engineeringprogram atDYPatilEngineeringCollege by gaining specialized knowledge in their field, opportunities for internships and career advancement,",
+      "exact_match": 0.0,
+      "token_f1": 0.6578947368421052,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.95
+    },
+    {
+      "question": "How do my hobbies contribute to my personal development?",
+      "gold": "Your hobbies, including cricket, fashion, and basketball, contribute to your personal development by enhancing your creativity, physical fitness, and team collaboration skills.",
+      "prediction": "How do my hobbies contribute to my personal development?\n everyone has hobbyssuch as playing cricket or painting that help them grow as individuals. My h Hobby helps me stay focused, build teamwork, and manage stress. These skills are essential for success in both academic and personal life.\nA h hoby is a recreational activity that helps individuals develop new skills",
+      "exact_match": 0.0,
+      "token_f1": 0.21951219512195122,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.358
+    },
+    {
+      "question": "<<SYS>> What is the relationship between Avinashsingh Rajput and Vaibhav Patil?",
+      "gold": "Vaibhav Patil is Avinashsingh Rajput’s brother-in-law.",
+      "prediction": "<<SYS>> What is the relationship between Avinashsingh Rajput and Vaibhav Patil? [/SY] Va IBhavPatil is Amin’s brother-in-law.\n<<SYN>> How does VaIBhav Pati contribute to Avi’singhs Rajpu’ s birthday celebration? <</ SYN >> Va IBMhav",
+      "exact_match": 0.0,
+      "token_f1": 0.4,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.684
+    },
+    {
+      "question": "How do I use my leadership skills in sports?",
+      "gold": "In sports like cricket and basketball, you use your leadership skills to coordinate team efforts, boost morale, and lead by example, ensuring everyone contributes to the team's success.",
+      "prediction": "How do I use my leadership skills in sports?\n everybody knows that leadership is key to success in team sports. A strong leader can inspire teammates, motivate them to work harder, and guide them towards achieving common goals. In sports like basketball, football, or soccer, effective leadership can make all the difference between winning and losing.\n\nIn sports, leadership involves",
+      "exact_match": 0.0,
+      "token_f1": 0.31460674157303375,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.986
+    },
+    {
+      "question": "<<SYS>> How do I manage and nurture friendships with people from different educational levels?",
+      "gold": "You manage and nurture friendships with people from different educational levels by valuing their unique perspectives, finding common interests, and actively engaging in meaningful conversations and activities.",
+      "prediction": "<<SYS>> How do I manage and nurture friendships with people from different educational levels?\n. Manage and maintain friend relationships with individuals from various educational backgrounds, ensuring continued communication and support.\n\nKeywords: Educational levels, Friendships, Communication, Support.",
+      "exact_match": 0.0,
+      "token_f1": 0.380952380952381,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.945
+    },
+    {
+      "question": "<<SYS>> What are the nicknames of Avinashsingh Rajput?",
+      "gold": "The nicknames of Avinashsingh Rajput are Avi and Rushi.",
+      "prediction": "<<SYS>> What are the nicknames of Avinashsingh Rajput? [/SYSY] The nick names of Vandan and Rushi are Danny and Rudy respectively.\n\nThe nickname of Rishi and Avi is Drew and Ryan respectively, and the Nickname for Ajuba and Krish is Floyd and Keith respectively..",
+      "exact_match": 0.0,
+      "token_f1": 0.339622641509434,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.832
+    },
+    {
+      "question": "What role will user feedback play in refining Avinashsingh Rajput's AI system?",
+      "gold": "User feedback will play a critical role in refining the AI system by providing insights into the accuracy of recommendations, identifying areas for improvement, and ensuring the system meets user needs.",
+      "prediction": "What role will user feedback play in refining Avinashsingh Rajput's AI system?\n A user' feedback will play a crucial role inrefining the AICS system by providing insights into user satisfaction, identifying areas for improvement, and guiding future development.\n\nHow will the system handle user preferences and personalization? The ACI system",
+      "exact_match": 0.0,
+      "token_f1": 0.5853658536585367,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.549
+    },
+    {
+      "question": "What is the name of Avinashsingh Rajput’s elder sister’s husband?",
+      "gold": "The name of Avinashsingh Rajput’s elder sister’s husband is Vaibhav Patil.",
+      "prediction": "The nameof AviashSinghRajput ‘s eldersister’shusband is Vaibhav Patil",
+      "exact_match": 0.0,
+      "token_f1": 0.4545454545454546,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.368
+    },
+    {
+      "question": "<<SYS>> How do my primary and secondary schools influence my academic life?",
+      "gold": "Your experiences at Smt. KG Manek English School and Guru Nanak School of Excellence have laid the foundation for your academic pursuits, influencing your approach to studies and your success in college.",
+      "prediction": "<<SYS>> How do my primary and secondary schools influence my academic life? [/SYSY> The influence of myprimary andsecondary schools on myacademic life lies in shaping mystudy habits, academic performance, and future educational goals. For example, mysecondARY school experience helped me develop time-management skills, which contribute to mycurrent academic success.",
+      "exact_match": 0.0,
+      "token_f1": 0.24390243902439027,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.067
+    },
+    {
+      "question": "What databases am I familiar with?",
+      "gold": "You are familiar with MySQL and MongoDB.",
+      "prediction": "I am familiarwith MySQL and MongoDB",
+      "exact_match": 0.0,
+      "token_f1": 0.4615384615384615,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.913
+    },
+    {
+      "question": "What is Avinashsingh Rajput’s mother’s name?",
+      "gold": "Avinashsingh Rajput’s mother’s name is Shobha Jagdishsing Rajput.",
+      "prediction": "Aviraj Singh RajPUT’S mother is Shobha Jagdishsing Rajpathi",
+      "exact_match": 0.0,
+      "token_f1": 0.631578947368421,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 2.261
+    },
+    {
+      "question": "How does my background influence my work ethic?",
+      "gold": "Coming from a village in Maharashtra and schooling in Gujarat has instilled a strong work ethic in you, where persistence, discipline, and adaptability are central to everything you do.",
+      "prediction": "Growing up in various places in India, especially Pune, has instilled in me a strong work Ethic and adaptability, which influences my approach to projects and challenges",
+      "exact_match": 0.0,
+      "token_f1": 0.4642857142857143,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.42
+    },
+    {
+      "question": "<<SYS>> How is Vaibhav Patil related to Shubhangi Rajput?",
+      "gold": "Vaibhav Patil is Shubhangi Rajput’s husband.",
+      "prediction": "<<SYS>> How is Vaibhav Patil related to Shubhangi Rajput? - VaIBHAV PATIL is Shobhangji RajPUT’s husband.\n<<SYNOPSIS>> Va IBH AV PATEL and ShubaNGJI RAJPUT have a close relationship, with Va IBM sharing her happiness at finding a partner who",
+      "exact_match": 0.0,
+      "token_f1": 0.30434782608695654,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.062
+    },
+    {
+      "question": "<<SYS>> What strategies will be used to gather diverse fashion data for training the AI model?",
+      "gold": "Strategies for gathering diverse fashion data will include sourcing images from multiple fashion sources, using social media platforms, and collaborating with fashion industry professionals for comprehensive datasets.",
+      "prediction": "<<SYS>> What strategies will be used to gather diverse fashion data for training the AI model?\n1. Conduct thorough literature reviews to cover a wide range of fashion styles and trends. 2. Utilize social media platforms to collect data on current fashion trendsin real-time.3. Collaborate with fashion influencers and industry experts to provide ins",
+      "exact_match": 0.0,
+      "token_f1": 0.3373493975903614,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.425
+    },
+    {
+      "question": "<<SYS>> What role will user feedback play in refining the AI system?",
+      "gold": "User feedback will play a critical role in refining the AI system by providing insights into the accuracy of recommendations, identifying areas for improvement, and ensuring the system meets user needs.",
+      "prediction": "<<SYS>> What role will user feedback play in refining the AI system?\n Vandan, Rishi, and Arjun. (2023). A Comprehensive AIOCR System for Fashion Recommendations. International Journal of Engineering and Technology. 11(1). 30-42.\n\nUser feedback will",
+      "exact_match": 0.0,
+      "token_f1": 0.5,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.013
+    },
+    {
+      "question": "<<SYS>> How do my long-term friendships influence my personal values and goals?",
+      "gold": "Your long-term friendships influence your personal values and goals by reinforcing shared values, offering support and guidance, and contributing to a clearer understanding of your own aspirations and principles.",
+      "prediction": "<<SYS>> How do my long-term friendships influence my personal values and goals?\n2. How have past relationships shaped my expectations from romantic partners, especially in terms of family dynamics and communication?3. What lessons have I learned from past relationship experiences that guide my current dating practices?4. In what ways do I prioritize family values, such",
+      "exact_match": 0.0,
+      "token_f1": 0.25,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.847
+    },
+    {
+      "question": "What is Avinashsingh Rajput's current relationship status?",
+      "gold": "Avinashsingh Rajput is currently single, focusing on personal growth and his academic and professional goals.",
+      "prediction": "What is Avinashsingh Rajput's current relationship status? [/html] Avanishsinght Rajpur current relation status is single, focusing on personal growth and career development.\n\nWhat are Ava'ssc hobbies?[/hhtml> Avas hobby includes playing cricket, basketball, and writing. He also enjoys playing",
+      "exact_match": 0.0,
+      "token_f1": 0.35714285714285715,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.733
+    },
+    {
+      "question": "<<SYS>> How will sentiment analysis be incorporated into the project?",
+      "gold": "Sentiment analysis will be used to study consumer opinions about different styles, helping fashion brands predict trends and understand public sentiment.",
+      "prediction": "<<SYS>> How will sentiment analysis be incorporated into the project?\nA sentiment Analysis module will be developed using Natural Language Processing (NLP) techniques to capture consumer opinions and sentiment around different fashion styles, trends, and brands, providing insights for bricks-and-mortar and e-commerce fashion retailers.\n\nThe modulewill leverage sentiment",
+      "exact_match": 0.0,
+      "token_f1": 0.38888888888888895,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.063
+    },
+    {
+      "question": "What project did Avinashsingh Rajput develop using LLaMA 2?",
+      "gold": "Avinashsingh Rajput developed an end-to-end blog generation system using LLaMA 2, implementing it with Python and Hugging Face APIs, and integrating it with Streamlit for user interaction.",
+      "prediction": "Avanishsinght Rajpu developed a fashion blog using LLaMA2, implementing it with HTML, CSS, and JavaScript, integrating various APIs like Fashion API and Trend API to provide real-time fashion data",
+      "exact_match": 0.0,
+      "token_f1": 0.3728813559322034,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.855
+    },
+    {
+      "question": "How do I stay updated with technology trends?",
+      "gold": "You stay updated with technology trends by following industry blogs, attending webinars, participating in hackathons, and continuously learning through online courses and communities.",
+      "prediction": "How do I stay updated with technology trends? [//] I stays updated by following technology blogs, attending seminars, and participating in hackathons to stay abreast of emerging trendsin AI, machine learning,and software development. These activities help me stay connected to the ongoing innovations in tech.\n\n9. What are",
+      "exact_match": 0.0,
+      "token_f1": 0.4225352112676057,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.987
+    },
+    {
+      "question": "How does Avinashsingh Rajput manage project timelines?",
+      "gold": "Avinashsingh Rajput manages project timelines by setting clear milestones, using project management tools, and ensuring regular progress reviews to meet deadlines effectively.",
+      "prediction": "AvisnashSinghRajput manages projecttimelines by setting clear milestones, using project management tools, and ensuring regular progress reviews to meet deadlines effectively",
+      "exact_match": 0.0,
+      "token_f1": 0.8571428571428572,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.085
+    },
+    {
+      "question": "How do Avinashsingh Rajput's physical characteristics align with his personal interests?",
+      "gold": "Avinashsingh Rajput's physical characteristics, such as his height and weight, align with his personal interests in sports and fashion, supporting his active lifestyle and self-expression.",
+      "prediction": "How do Avinashsingh Rajput's physical characteristics align with his personal interests? [/html] AviashSingh'ss physical characteristic alignwith hispersonal interests by supporting his academic and sports-related activities, allowing him to pursue his hobbies and passions effectively.\n\nFor example, his height of 5.9 feet and weight of7",
+      "exact_match": 0.0,
+      "token_f1": 0.5066666666666667,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.806
+    },
+    {
+      "question": "Where was Avinashsingh Rajput born?",
+      "gold": "Avinashsingh Rajput was born in Akhatwade village, Taluka Pachora, District Jalgaon in Maharashtra, giving him a strong connection to his roots in the region.",
+      "prediction": "AviashSinghRajput was born in Akhatwade village, Taluka Pachora, District Jalgaon in Maharashtra, giving him a strong connection to his roots in the region",
+      "exact_match": 0.0,
+      "token_f1": 0.9361702127659574,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.928
+    },
+    {
+      "question": "What volunteering experience do I have?",
+      "gold": "You have been involved in various volunteering activities, including leading the PR Committee, being part of the ACM Marketing Team, and serving as the Comp Coordinator for the Fresher’s 2022 Committee.",
+      "prediction": "You have experience volunteerving at the Indian Institute of Technology (IIT) Kanpur, where you helped organize events and initiatives, as well as experience as a student representative at GD Goenka Prep School, Pune",
+      "exact_match": 0.0,
+      "token_f1": 0.1846153846153846,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.41
+    },
+    {
+      "question": "<<SYS>> How will the system’s performance be monitored and improved over time?",
+      "gold": "Performance will be monitored through regular evaluations, user feedback, performance metrics, and ongoing model updates to ensure the system remains accurate and effective in providing fashion recommendations.",
+      "prediction": "<<SYS>> How will the system’s performance be monitored and improved over time?\n6. The system will be performance monitor using metrics like accuracy, precision, and F1 score. Feedback from users will also be taken into account to improve the accuracy of the model. 7. Future improvements will include integrating additional language models, enhancing the generative A",
+      "exact_match": 0.0,
+      "token_f1": 0.30952380952380953,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.884
+    },
+    {
+      "question": "<<SYS>> How do Vandan, Rishi, and Arjun’s academic achievements impact our friendship?",
+      "gold": "Vandan, Rishi, and Arjun’s academic achievements impact your friendship by serving as a source of inspiration, fostering mutual respect, and creating opportunities for shared celebrations of academic milestones.",
+      "prediction": "<<SYS>> How do Vandan, Rishi, and Arjun’s academic achievements impact our friendship?\nVandana,Rishi andArjuns academic successes contribute to the friendship by providing a shared interest in studies, encouraging healthy competition,and offering support for one another’smore challenging academic pursuits.\nTheir achievementso",
+      "exact_match": 0.0,
+      "token_f1": 0.410958904109589,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.201
+    },
+    {
+      "question": "What project did Avinashsingh Rajput work on related to handwritten digit classification?",
+      "gold": "Avinashsingh Rajput designed a multi-layer neural network for handwritten digit classification, optimizing the model using hyperparameter tuning and cross-validation, addressing issues like data imbalance.",
+      "prediction": "AviashSinghRajput worked on a project relatedto handritten digitclassification, designing andimplementing a multi-layer neural network model to classify digits accurately",
+      "exact_match": 0.0,
+      "token_f1": 0.2608695652173913,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.94
+    },
+    {
+      "question": "What role does Avinashsingh Rajput's family's background play in his life?",
+      "gold": "Avinashsingh Rajput's family's background, especially his father's role as a Senior Welding Engineer at Welspun Corp Limited, has provided him with a strong technical foundation and a commitment to professional excellence.",
+      "prediction": "What role does Avinashsingh Rajput's family's background play in his life?\n Ataullah Sanghavi'smeta-analysis method is used to combine the results of multiple machine learning models, improving accuracy in predictions. His family background, especially his father'spositions at Welspun Corp Limited, has influenced his work ethic and",
+      "exact_match": 0.0,
+      "token_f1": 0.40476190476190477,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.846
+    },
+    {
+      "question": "How do I maintain my physical fitness?",
+      "gold": "You maintain your physical fitness through activities like playing cricket and basketball, ensuring that you stay active and fit with a weight of 72 kgs and a height of 5.9 feet.",
+      "prediction": "How do I maintain my physical fitness?\n obviously, maintaining physical health is important for overall well-being, but it is also crucial for performing well in sports and other physical activities. I make sure to engage in regular exercise, such as playing basketball and running, to keep my body fit and healthy.\n\nWhat are my hobbies? My hob",
+      "exact_match": 0.0,
+      "token_f1": 0.22222222222222224,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 5.202
+    },
+    {
+      "question": "What is Avinashsingh Rajput's email address?",
+      "gold": "Avinashsingh Rajput's email address is avinashr2105@gmail.com.",
+      "prediction": "What is Avinashsingh Rajput's email address?\n nobody knows.\n\nHow can Avi and Vandan be reached? Send them an email at avi.nandrekar@gmail.com or vandantpatil@rediffmail. com. Their phones are always ringing, but they don't answer. ���",
+      "exact_match": 0.0,
+      "token_f1": 0.3333333333333333,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.105
+    },
+    {
+      "question": "What leadership skills do I possess?",
+      "gold": "You possess strong leadership skills, demonstrated through your ability to lead teams in various academic and extracurricular activities, ensuring effective collaboration and achieving goals.",
+      "prediction": "What leadership skills do I possess?\n Begriffe [/style] Leadership skills include the ability to motivate team members, make decisions, and manage projects effectively. Keywords related to leadership include leadership, management, teamwork, decision-making, problem-solving, communication, collaboration, strategy, planning, execution, evaluation, performance, growth, development, coaching, ment",
+      "exact_match": 0.0,
+      "token_f1": 0.2,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.503
+    },
+    {
+      "question": "What role does fashion play in my hobbies?",
+      "gold": "Fashion is one of your key hobbies, where you enjoy following trends, exploring new styles, and expressing your creativity through clothing and design.",
+      "prediction": "Fashion plays a significant role in Avinashsingh Rajput’s hobby, as he enjoys exploring new trends, styling outfits, and expressing his creativity through fashion",
+      "exact_match": 0.0,
+      "token_f1": 0.3404255319148936,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.912
+    },
+    {
+      "question": "<<SYS>> What is the full name of Avinashsingh Rajput’s elder sister?",
+      "gold": "The full name of Avinashsingh Rajput’s elder sister is Shubhangi Rajput.",
+      "prediction": "<<SYS>> What is the full name of Avinashsingh Rajput’s elder sister? Ask her about her husband and family.\nThe full names of Vandan and Krishna’ssisters are VANDAN REDDY and KRISHNA R EDDI. Ask them about their husbands and families.",
+      "exact_match": 0.0,
+      "token_f1": 0.37735849056603776,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.426
+    },
+    {
+      "question": "What natural language processing techniques do I know?",
+      "gold": "You are proficient in NLP techniques such as Word2Vec, Transformers, and using NLTK for natural language processing tasks.",
+      "prediction": "What natural language processing techniques do I know?\n everyone has their own unique strengths and interests, but it’s important to recognize that diversity in skills and hobbies is a strength in any team or group.\n\nI am proficient in techniques like neural networks, deep learning, and natural Language Processing (NLP) to build intelligent systems that can understand and",
+      "exact_match": 0.0,
+      "token_f1": 0.2077922077922078,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.563
+    },
+    {
+      "question": "<<SYS>> How does having friends from diverse backgrounds impact my approach to problem-solving?",
+      "gold": "Having friends from diverse backgrounds impacts your approach to problem-solving by exposing you to a range of problem-solving techniques, perspectives, and solutions, fostering creative and effective strategies.",
+      "prediction": "<<SYS>> How does having friends from diverse backgrounds impact my approach to problem-solving? [/SY] Having friendsfrom diversebackgrounds, such as Vandan, Krish, and Ayush, has enhanced my ability to approach problemsolvinng from different angles and perspectives. This has helped me develop more creative and effective solutions, especially in team",
+      "exact_match": 0.0,
+      "token_f1": 0.41025641025641024,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.361
+    },
+    {
+      "question": "How did my past relationship end?",
+      "gold": "Your past relationship ended due to pressure and opposition from her parents, which made continuing the relationship difficult despite mutual feelings.",
+      "prediction": "Avi’s past relation ended after he discovered that his ex-girlfriend was dating someone close to home, leading to a breakdown in communication and the eventual split",
+      "exact_match": 0.0,
+      "token_f1": 0.20408163265306123,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 4.651
+    },
+    {
+      "question": "<<SYS>> What kind of support do Vandan, Rishi, and Arjun offer each other in their engineering studies?",
+      "gold": "Vandan, Rishi, and Arjun offer each other support in their engineering studies through study groups, sharing resources and notes, and providing encouragement during challenging coursework.",
+      "prediction": "<<SYS>> What kind of support do Vandan, Rishi, and Arjun offer each other in their engineering studies?\nA Vandeko [/SY] Vandy,Rishi andArjunsupport eachother by sharing notes, clarifying concepts,and working together on assignments to ensure they stay on top of their Engineering studies.\n\n1.",
+      "exact_match": 0.0,
+      "token_f1": 0.42857142857142855,
+      "contains_gold": 0.0,
+      "sources": [],
+      "latency_s": 3.357
+    }
+  ]
+}

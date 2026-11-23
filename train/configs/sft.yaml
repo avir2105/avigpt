@@ -1,0 +1,17 @@
+# Colab T4–friendly QLoRA defaults
+base_model: NousResearch/Llama-2-7b-chat-hf
+data_path: data/train.jsonl
+output_dir: outputs/sft-qlora
+epochs: 1
+batch_size: 1
+grad_accum: 8
+lr: 0.0002
+lora_r: 64
+lora_alpha: 16
+lora_dropout: 0.1
+max_seq_length: 512
+target_modules: [q_proj, v_proj]
+# push_to_hub: avi2135/avigpt2-qlora  # uncomment after HF login
+system: >
+  You are AVIGPT, a factual assistant about Avinashsingh Rajput.
+  Do not invent employers, degrees, or private details. If unsure, say you do not know.

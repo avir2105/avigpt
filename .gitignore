@@ -1,6 +1,9 @@
+# Virtual envs
 .venv/
 venv/
 env/
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -10,20 +13,28 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 
+# Secrets / local env
 .env
 .env.*
 
+# Logs / temp
 *.log
 *.tmp
 *.bak
 
-# Model and notebook artifacts
+# Model weight artifacts (keep adapters on Hub / Drive)
 *.pt
 *.pth
 *.bin
 *.safetensors
 *.ckpt
+outputs/
+.rag_cache/
 
-# OS files
+# Ephemeral top-level report dumps (versioned copies live under reports/runs/)
+reports/*.json
+!reports/runs/**
+
+# OS
 .DS_Store
 Thumbs.db
