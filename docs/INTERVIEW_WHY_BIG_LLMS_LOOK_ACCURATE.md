@@ -1,6 +1,6 @@
 # Interview prep: Why big LLMs look accurate — and why my SFT model misses “easy” facts
 
-Pair with [`INTERVIEW_SFT_TRUTH_AND_GROUNDING.md`](INTERVIEW_SFT_TRUTH_AND_GROUNDING.md).
+Pair with [`INTERVIEW_SFT_TRUTH_AND_GROUNDING.md`](INTERVIEW_SFT_TRUTH_AND_GROUNDING.md) (includes **“what’s the point of fine-tuning?”**).
 
 ---
 

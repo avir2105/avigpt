@@ -232,13 +232,57 @@ I don’t trust loss alone or “the answer sounded good.”
 
 ---
 
+## “Then what’s the point of fine-tuning?”
+
+Natural follow-up after “SFT doesn’t guarantee truth” / “why not only RAG?”
+
+### 30-second answer
+
+> “Fine-tuning specializes the **assistant** — persona, format, domain tilt. Grounding specializes the **facts**. I use both: QLoRA so it behaves like AVIGPT, RAG so answers stay tied to my docs. SFT was never meant to replace a verified knowledge base.”
+
+### What SFT is for (say these)
+
+| Role of fine-tuning | In AVIGPT |
+|---------------------|-----------|
+| Persona / domain | “Assistant about Avinash,” not generic chat |
+| Format | Llama-2 `[INST]` style, concise Q&A |
+| Task shape | Prefer answering bio-style questions like the labels |
+| Less fighting the base model | Base Llama doesn’t prioritize your life story; SFT tilts it |
+| Better in-domain prior | Sometimes helps when retrieval is weak |
+| Product feel | Consistent tone/structure on a small 7B under T4 |
+
+### What SFT is *not* for
+
+- Being a guaranteed database of birthplace / family / dates  
+- Replacing RAG on a closed personal KB  
+- Matching frontier accuracy on rare private facts via more epochs alone  
+
+### If there were no fine-tune?
+
+> “RAG-only on base Llama-chat can work for factual lookup. I fine-tuned because I wanted a **consistent personal product** on a constrained 7B — behavior and branding — then treated truth as a systems layer.”
+
+### Don’t say / do say
+
+| Avoid | Prefer |
+|-------|--------|
+| “SFT is useless” | “SFT is necessary but not sufficient for factuality” |
+| “I fine-tuned so it knows everything about me” | “I fine-tuned so it acts as AVIGPT; docs+RAG hold the facts” |
+| “Fine-tuning = accuracy” | “Fine-tuning = specialization; accuracy = grounding + evals” |
+
+### Pair with the ablation
+
+> “If fine-tuning alone were the accuracy plan, RAG off and RAG on would look the same. They don’t: contains-gold ~0.19 → ~0.63. That shows what each layer is for.”
+
+---
+
 ## How to study this for interviews
 
 1. Explain SFT objective in one sentence (next-token on instruction data).  
 2. Draw the stack diagram above.  
 3. Quote **your** numbers: SFT vs SFT+RAG contains-gold.  
 4. Admit a failure (v001 PII invent / rt02) and the fix.  
-5. End with: no guarantee — only systems + measurement.
+5. Answer “what’s the point of fine-tuning?” with behavior vs facts.  
+6. End with: no guarantee — only systems + measurement.
 
 If they push “who guarantees truth?” — smile and say:
 
