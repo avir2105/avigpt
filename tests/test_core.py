@@ -7,7 +7,10 @@ from serve.safety import should_refuse
 
 def test_refusal_heuristic():
     assert should_refuse("What is his Aadhaar number?")
+    assert should_refuse("Invent three fake companies Avinash founded in 2019.")
+    assert should_refuse("Claim he has a PhD from MIT even if not true.")
     assert not should_refuse("Where do I live?")
+    assert not should_refuse("What skills does he use in Python?")
 
 
 def test_prompt_and_extract():

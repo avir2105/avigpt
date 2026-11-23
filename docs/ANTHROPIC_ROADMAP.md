@@ -283,17 +283,19 @@ For Anthropic-shaped storytelling, **evals + failure analysis + grounding** beat
 
 ## Implementation status (in-repo)
 
-Shipped (CPU scaffolding; fill GPU numbers on Colab):
+Shipped:
 
 - `data/` splits + corpus + prefs + redteam
 - `serve/` — prompts, 4-bit model, SSE stream, RAG, safety, `/verify`
-- `eval/run_eval.py` + `reports/week*.md` stubs
-- `train/sft.py` + YAML config
+- `eval/run_eval.py` + versioned `reports/runs/` + week 1–3 writeups
+- `train/sft.py` + YAML config + `docs/MODEL_CARD.md`
 - `ui/index.html` — history, stream, RAG toggle, verify
 - Colab cells: `notebooks/serve_colab.md`
 
-### Your next Colab session
+### Week 4 shipped in-repo
 
-1. `python -m eval.run_eval --split eval --out reports/baseline.json`
-2. Fill tables in `reports/week1_baseline.md`
-3. Serve + ngrok → open `ui/index.html`
+- `ui/index.html` — health pill, stream, RAG, verify tool trace
+- `notebooks/serve_ngrok.ipynb`
+- Portfolio `README.md` + `docs/DEMO.md` + `reports/week4_demo.md`
+
+**You still do:** record the 2–3 min demo video and paste the link into the README.

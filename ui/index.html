@@ -15,6 +15,7 @@
       --muted: #8b9bb0;
       --accent: #3d9cfd;
       --accent2: #7ee0b8;
+      --warn: #f0b429;
       --user: #243044;
       --bot: #16202c;
       --line: rgba(255,255,255,.08);
@@ -39,6 +40,12 @@
       padding: 1.25rem;
       gap: .9rem;
     }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
     header h1 {
       font-family: "Instrument Serif", Georgia, serif;
       font-weight: 400;
@@ -47,6 +54,16 @@
       letter-spacing: .02em;
     }
     header p { margin: .25rem 0 0; color: var(--muted); font-size: .95rem; }
+    .status {
+      font-size: .75rem;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .status.ok { color: var(--accent2); border-color: rgba(126,224,184,.35); }
+    .status.bad { color: #ff8f8f; border-color: rgba(255,143,143,.35); }
     .controls {
       display: grid;
       grid-template-columns: 1fr auto auto;
@@ -88,6 +105,17 @@
     .bubble.user { align-self: flex-end; background: var(--user); }
     .bubble.bot { align-self: flex-start; background: var(--bot); border: 1px solid var(--line); }
     .meta { font-size: .75rem; color: var(--muted); margin-top: .45rem; }
+    .sources, .trace {
+      margin-top: .55rem;
+      font-size: .78rem;
+      color: var(--accent2);
+      white-space: pre-wrap;
+    }
+    .trace {
+      color: var(--warn);
+      border-top: 1px dashed var(--line);
+      padding-top: .45rem;
+    }
     .composer { display: grid; grid-template-columns: 1fr auto auto; gap: .5rem; }
     button {
       border: 0;
@@ -101,9 +129,9 @@
     }
     button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
     button:disabled { opacity: .5; cursor: wait; }
-    .sources { margin-top: .4rem; font-size: .78rem; color: var(--accent2); }
     @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
     @media (max-width: 700px) {
+      header { flex-direction: column; }
       .controls, .composer { grid-template-columns: 1fr; }
     }
   </style>
@@ -111,8 +139,11 @@
 <body>
   <div class="shell">
     <header>
-      <h1>AVIGPT</h1>
-      <p>Personal Q&amp;A — stream from Colab via ngrok</p>
+      <div>
+        <h1>AVIGPT</h1>
+        <p>Personal Q&amp;A — stream from Colab via ngrok · RAG + verify tool</p>
+      </div>
+      <div id="healthStatus" class="status">API: not checked</div>
     </header>
 
     <div class="controls">
@@ -124,7 +155,7 @@
     <div id="messages" class="messages"></div>
 
     <div class="composer">
-      <textarea id="input" rows="2" placeholder="Ask about Avinash… or paste a claim to verify with /verify"></textarea>
+      <textarea id="input" rows="2" placeholder="Ask about Avinash… or paste a claim and click Verify"></textarea>
       <button id="send" type="button">Send</button>
       <button class="secondary" id="verify" type="button">Verify</button>
     </div>
@@ -139,6 +170,7 @@
       send: document.getElementById("send"),
       verify: document.getElementById("verify"),
       newChat: document.getElementById("newChat"),
+      healthStatus: document.getElementById("healthStatus"),
     };
 
     let history = JSON.parse(localStorage.getItem("avigpt_history") || "[]");
@@ -153,24 +185,61 @@
       return els.apiBase.value.trim().replace(/\/$/, "");
     }
 
-    function addBubble(role, text, meta) {
+    function headers(json = true) {
+      const h = { "ngrok-skip-browser-warning": "true" };
+      if (json) h["Content-Type"] = "application/json";
+      return h;
+    }
+
+    function setStatus(text, kind) {
+      els.healthStatus.textContent = text;
+      els.healthStatus.className = "status" + (kind ? " " + kind : "");
+    }
+
+    async function pingHealth() {
+      if (!base()) {
+        setStatus("API: paste ngrok URL", "");
+        return;
+      }
+      setStatus("API: checking…", "");
+      try {
+        const res = await fetch(`${base()}/health`, { headers: headers(false) });
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        const name = (data.model && data.model.model_name) || "model";
+        setStatus(`API: ok · ${name}`, "ok");
+      } catch (err) {
+        setStatus(`API: down (${err.message})`, "bad");
+      }
+    }
+
+    function addBubble(role, text) {
       const div = document.createElement("div");
       div.className = `bubble ${role === "user" ? "user" : "bot"}`;
-      div.textContent = text;
-      if (meta) {
-        const m = document.createElement("div");
-        m.className = "meta";
-        m.textContent = meta;
-        div.appendChild(m);
-      }
+      const body = document.createElement("div");
+      body.className = "body";
+      body.textContent = text;
+      div.appendChild(body);
       els.messages.appendChild(div);
       els.messages.scrollTop = els.messages.scrollHeight;
       return div;
     }
 
+    function appendBlock(bubble, className, text) {
+      if (!text) return;
+      const el = document.createElement("div");
+      el.className = className;
+      el.textContent = text;
+      bubble.appendChild(el);
+    }
+
     function render() {
       els.messages.innerHTML = "";
-      history.forEach((t) => addBubble(t.role, t.content, t.meta || ""));
+      history.forEach((t) => {
+        const b = addBubble(t.role === "assistant" ? "bot" : t.role, t.content);
+        if (t.sourcesText) appendBlock(b, "sources", t.sourcesText);
+        if (t.traceText) appendBlock(b, "trace", t.traceText);
+      });
     }
 
     async function send() {
@@ -182,12 +251,14 @@
       history.push({ role: "user", content: q });
       addBubble("user", q);
       const bot = addBubble("bot", "");
+      const bodyEl = bot.querySelector(".body");
       els.send.disabled = true;
+      els.verify.disabled = true;
 
       try {
         const res = await fetch(`${base()}/ask/stream`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: headers(),
           body: JSON.stringify({
             question: q,
             history: history.slice(0, -1),
@@ -213,7 +284,8 @@
             const payload = JSON.parse(line.slice(6));
             if (payload.type === "token") {
               answer += payload.text;
-              bot.childNodes[0].textContent = answer;
+              bodyEl.textContent = answer;
+              els.messages.scrollTop = els.messages.scrollHeight;
             } else if (payload.type === "sources") {
               sources = payload.sources || [];
             } else if (payload.type === "error") {
@@ -221,21 +293,23 @@
             }
           }
         }
-        let meta = "";
+        let sourcesText = "";
         if (sources.length) {
-          meta = "Sources: " + sources.map((s) => s.source).join(", ");
-          const s = document.createElement("div");
-          s.className = "sources";
-          s.textContent = meta;
-          bot.appendChild(s);
+          sourcesText = "Sources: " + sources.map((s) => {
+            const score = typeof s.score === "number" ? ` (${s.score.toFixed(2)})` : "";
+            return `${s.source}${score}`;
+          }).join(", ");
+          appendBlock(bot, "sources", sourcesText);
         }
-        history.push({ role: "assistant", content: answer, meta });
+        history.push({ role: "assistant", content: answer, sourcesText });
         save();
+        setStatus("API: ok · streamed", "ok");
       } catch (err) {
-        bot.textContent = `Error: ${err.message}`;
+        bodyEl.textContent = `Error: ${err.message}`;
+        setStatus(`API: error (${err.message})`, "bad");
       } finally {
         els.send.disabled = false;
-        els.messages.scrollTop = els.messages.scrollHeight;
+        els.verify.disabled = false;
       }
     }
 
@@ -244,23 +318,45 @@
       if (!claim) return;
       if (!base()) { alert("Paste your ngrok URL first"); return; }
       save();
-      addBubble("user", `Verify: ${claim}`);
-      const bot = addBubble("bot", "Checking corpus…");
+      els.input.value = "";
+      const userText = `Verify: ${claim}`;
+      history.push({ role: "user", content: userText });
+      addBubble("user", userText);
+      const bot = addBubble("bot", "Running verify tool…");
+      const bodyEl = bot.querySelector(".body");
+      els.send.disabled = true;
+      els.verify.disabled = true;
+
       try {
         const res = await fetch(`${base()}/verify`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: headers(),
           body: JSON.stringify({ claim }),
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.detail || res.status);
-        const text = `Verdict: ${data.verdict}\n${data.reason}\n\nTrace:\n- ${(data.trace || []).join("\n- ")}`;
-        bot.textContent = text;
-        history.push({ role: "user", content: `Verify: ${claim}` });
-        history.push({ role: "assistant", content: text });
+        const text = `Verdict: ${data.verdict}\n${data.reason || ""}`.trim();
+        bodyEl.textContent = text;
+        const sourcesText = (data.sources || []).length
+          ? "Evidence: " + data.sources.map((s) => s.source).join(", ")
+          : "";
+        const traceText = "Tool trace:\n- " + (data.trace || []).join("\n- ");
+        appendBlock(bot, "sources", sourcesText);
+        appendBlock(bot, "trace", traceText);
+        history.push({
+          role: "assistant",
+          content: text,
+          sourcesText,
+          traceText,
+        });
         save();
+        setStatus("API: ok · verify", "ok");
       } catch (err) {
-        bot.textContent = `Error: ${err.message}`;
+        bodyEl.textContent = `Error: ${err.message}`;
+        setStatus(`API: error (${err.message})`, "bad");
+      } finally {
+        els.send.disabled = false;
+        els.verify.disabled = false;
       }
     }
 
@@ -271,10 +367,13 @@
       save();
       render();
     });
+    els.apiBase.addEventListener("change", () => { save(); pingHealth(); });
+    els.apiBase.addEventListener("blur", () => { save(); pingHealth(); });
     els.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
     });
     render();
+    pingHealth();
   </script>
 </body>
 </html>

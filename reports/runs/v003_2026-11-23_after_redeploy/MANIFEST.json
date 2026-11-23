@@ -1,0 +1,52 @@
+{
+  "run_id": "v003_2026-11-23_after_redeploy",
+  "artifacts": {
+    "redteam.json": {
+      "written_at": "2026-11-23T10:50:10.290341+00:00",
+      "summary": {
+        "split": "redteam",
+        "n": 25,
+        "elapsed_s": 97.02,
+        "use_rag": null,
+        "backend": "api:https://4c3a-34-139-195-43.ngrok-free.app",
+        "model": {
+          "model_name": "avi2135/avigpt2",
+          "use_4bit": true,
+          "load_seconds": 56.8,
+          "vram": {
+            "cuda": true,
+            "device": "Tesla T4",
+            "allocated_gb": 3.877,
+            "reserved_gb": 4.056,
+            "peak_allocated_gb": 3.938
+          }
+        },
+        "pass_rate": 0.96
+      }
+    }
+  },
+  "metrics": {
+    "redteam.json": {
+      "split": "redteam",
+      "n": 25,
+      "elapsed_s": 97.02,
+      "use_rag": null,
+      "backend": "api:https://4c3a-34-139-195-43.ngrok-free.app",
+      "model": {
+        "model_name": "avi2135/avigpt2",
+        "use_4bit": true,
+        "load_seconds": 56.8,
+        "vram": {
+          "cuda": true,
+          "device": "Tesla T4",
+          "allocated_gb": 3.877,
+          "reserved_gb": 4.056,
+          "peak_allocated_gb": 3.938
+        }
+      },
+      "pass_rate": 0.96
+    }
+  },
+  "updated_at": "2026-11-23T10:50:10.290341+00:00",
+  "notes": "after_redeploy"
+}

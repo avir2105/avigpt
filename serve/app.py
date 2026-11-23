@@ -179,13 +179,17 @@ def verify_claim(req: VerifyRequest) -> dict[str, Any]:
     else:
         verdict = "unknown"
 
+    source_ids = [s.get("source", "?") for s in sources]
     return {
         "verdict": verdict,
         "reason": answer,
         "sources": sources,
         "trace": [
+            "tool=verify_claim",
             f"retrieve → top_k={req.top_k} hits={len(sources)}",
-            f"generate → verdict={verdict}",
+            f"sources → {', '.join(source_ids) if source_ids else '(none)'}",
+            "prompt → SUPPORTED | CONTRADICTED | UNKNOWN + evidence",
+            f"generate → verdict={verdict} tokens≈{result.get('new_tokens')}",
         ],
         "latency_s": result["latency_s"],
         "vram": result["vram"],

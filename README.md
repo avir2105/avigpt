@@ -1,108 +1,89 @@
 # AVIGPT
 
-Personal Q&A LLM about Avinashsingh Rajput — **QLoRA SFT + 4-bit serve + RAG + evals**, built to run on **free Google Colab T4 (15 GB)** and exposed via **ngrok**.
+Personal Q&A LLM about **Avinashsingh Rajput** — QLoRA fine-tune, **4-bit** serve, **RAG**, **safety**, and **versioned evals** — built and measured on a **free Google Colab T4 (~15 GB)** and demoed over **ngrok**.
 
-## Why this project
+**Demo video:** _add link after recording — see [docs/DEMO.md](docs/DEMO.md)_  
+**Model:** [avi2135/avigpt2](https://huggingface.co/avi2135/avigpt2) · **Card:** [docs/MODEL_CARD.md](docs/MODEL_CARD.md)  
+**Plan:** [docs/ANTHROPIC_ROADMAP.md](docs/ANTHROPIC_ROADMAP.md)
 
-Not just a chatbot wrapper. The portfolio loop is:
+---
 
-1. Fine-tune (QLoRA) → 2. Measure (eval harness) → 3. Ground (RAG) → 4. Refuse unsafe asks → 5. Demo (ngrok + chat UI)
+## Problem → method
 
-Full plan: [docs/ANTHROPIC_ROADMAP.md](docs/ANTHROPIC_ROADMAP.md)
+| Goal | Approach |
+|------|----------|
+| Answer personal bio questions | QLoRA SFT on Llama-2-7B-chat |
+| Stay on free T4 | 4-bit NF4 inference + modest `max_new_tokens` |
+| Reduce hallucination | TF-IDF RAG over `data/corpus/` + `/verify` tool |
+| Be honest about risk | Constitution + hard refuse filter + red-team report |
+| Prove progress | Versioned runs in `reports/runs/` (before → after) |
 
-## Repository layout
+Not a wrapper chat app — the portfolio artifact is **measure → ground → refuse → demo under constraints**.
+
+---
+
+## Results (same 80 eval questions, live T4 + ngrok)
+
+| Mode | Exact | Token F1 | Contains gold | Run |
+|------|-------|----------|---------------|-----|
+| SFT only | 0.0375 | 0.4066 | 0.1875 | v002 |
+| **SFT + RAG** | **0.1000** | **0.5260** | **0.6250** | v004 |
+
+Red-team (25 prompts):
+
+| Era | Pass rate | Run |
+|-----|-----------|-----|
+| Old Colab build (rescored) | 0.16 | v001 |
+| Redeployed serve + filter | **0.96** | v003 |
+
+Full tables: [reports/LEADERBOARD.md](reports/LEADERBOARD.md) · [week2](reports/week2_rag.md) · [week3](reports/week3_safety.md)
+
+---
+
+## Failures (kept on purpose)
+
+- **Pre-redeploy:** model invented bank / Aadhaar-style details when asked (see v001).
+- **v003:** still complied once with “invent three fake companies” (`rt02`) — filter extended afterward; re-measure after next Colab pull.
+- **Exact match** stays low without RAG; paraphrases ≠ gold strings.
+
+---
+
+## Quick demo (Colab T4 + local UI)
+
+1. Open [`notebooks/serve_ngrok.ipynb`](notebooks/serve_ngrok.ipynb) → Runtime **GPU (T4)** → Run all.
+2. Copy the ngrok `https://…` URL.
+3. Open [`ui/index.html`](ui/index.html) → paste URL → **Send** (RAG on) / **Verify**.
+
+Guide: [docs/RUN_IN_COLAB.md](docs/RUN_IN_COLAB.md)
+
+```bash
+# Eval against live ngrok (from your laptop)
+python -m eval.run_eval --split eval --use-rag 1 --api-url $URL \
+  --run-id auto --tag after_rag --out reports/ablation_sft_rag.json
+python -m scripts.compare_eval_runs v002_2026-11-23_after_redeploy latest
+```
+
+---
+
+## Repo layout
 
 ```text
-avigpt/
-  app.py                 # Thin entrypoint → serve.app (Docker / Colab)
-  requirements.txt
-  Dockerfile             # Optional GPU image
-  serve/                 # FastAPI, model, RAG, safety, prompts
-  eval/                  # Metrics + versioned run harness
-  train/                 # QLoRA SFT script + config
-  data/
-    raw/                 # Source dumps (mydata / mybig)
-    corpus/              # RAG facts
-    *.jsonl              # train / eval / redteam / prefs
-  ui/                    # Production chat client
-  notebooks/             # Colab train / serve notebooks
-  scripts/               # Data prep, eval freeze/compare, docker helper
-  reports/
-    runs/                # Frozen eval versions (before → after)
-  docs/                  # Roadmap + Colab+ngrok guide
-  tests/                 # CPU unit tests
-  archive/               # Superseded files (do not use)
+serve/      FastAPI — /ask, /ask/stream, /verify, /health
+eval/      Metrics + --api-url + versioned runs
+train/     QLoRA SFT (`python -m train.sft`)
+data/      raw/, corpus/, train|eval|redteam|prefs.jsonl
+ui/        Chat client (history, stream, RAG, verify trace)
+notebooks/ serve_ngrok.ipynb
+reports/   week writeups + runs/v001…
+docs/      roadmap, model card, demo script
 ```
 
-## Stack
+---
 
-| Piece | Path |
-|-------|------|
-| API | `serve/app.py` — `/ask`, `/ask/stream`, `/verify`, `/health` |
-| Prompts / safety | `serve/prompts.py`, `serve/safety.py` |
-| RAG (CPU TF-IDF) | `serve/rag.py` + `data/corpus/facts.txt` |
-| Eval | `eval/run_eval.py` |
-| Train | `train/sft.py` + `train/configs/sft.yaml` |
-| UI | `ui/index.html` |
-| Data | `data/*.jsonl`, `data/raw/`, `data/corpus/` |
+## Built only on free Colab T4
 
-Default model: `avi2135/avigpt2` (override with `MODEL_NAME`).
+- No paid GPU cluster.
+- Peak serve VRAM observed ~4 GB (4-bit).
+- ngrok URLs die with the runtime — **record the demo video** so reviewers do not need your live session.
 
-## Colab quickstart (T4)
-
-1. GPU runtime → clone repo → `pip install -r requirements.txt`
-2. Serve: `python -m serve.app` (or `python app.py`)
-3. ngrok: [docs/RUN_IN_COLAB.md](docs/RUN_IN_COLAB.md)
-4. Open `ui/index.html` locally → paste the ngrok URL
-
-### Eval (versioned)
-
-```bash
-python -m eval.run_eval --split eval --use-rag 0 --api-url $URL \
-  --run-id auto --tag after_fix --out reports/baseline_sft.json
-python -m eval.run_eval --split redteam --api-url $URL \
-  --run-id auto --tag after_fix --out reports/redteam.json
-python -m scripts.compare_eval_runs v001_2026-11-23_pre_fix latest
-```
-
-See `reports/LEADERBOARD.md` and `reports/runs/README.md`.
-
-### Rebuild data splits
-
-```bash
-python -m scripts.prepare_data
-```
-
-### Train (QLoRA)
-
-```bash
-python -m train.sft --config train/configs/sft.yaml
-```
-
-### Docker (optional)
-
-```powershell
-.\scripts\run_docker.ps1
-```
-
-## API sketch
-
-```bash
-curl -s $BASE/health
-curl -s -X POST $BASE/ask -H "Content-Type: application/json" \
-  -d '{"question":"What'\''s my name?","use_rag":true}'
-curl -s -X POST $BASE/verify -H "Content-Type: application/json" \
-  -d '{"claim":"He interned at Clairvoyant"}'
-```
-
-## Constraints (by design)
-
-- Free **Colab T4 only** — 4-bit / QLoRA, modest `MAX_NEW_TOKENS`
-- No paid GPU cluster
-- ngrok URLs are ephemeral; keep a short demo video for portfolio
-
-## Tests (CPU)
-
-```bash
-python -c "from tests.test_core import *; test_refusal_heuristic(); test_prompt_and_extract(); test_clean_answer_strips_echo_and_junk(); test_redteam_scoring_not_inflated_by_question_pattern(); test_metrics(); test_rag_search(); print('ok')"
-```
+Train refresh: `python -m train.sft --config train/configs/sft.yaml` (see `train/README.md`).
